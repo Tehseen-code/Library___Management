@@ -67,7 +67,7 @@ class Library {
             itemIds.forEach { itemId ->
                 val item = itemsById[itemId] ?: return@forEach // if item is not found, skip
 
-                val overdueDays = 3  // i just assume the overdue days
+                val overdueDays = 3  // just assume the overdue days here
                 // the lambda action
                     action(item, member, overdueDays)
 
@@ -75,4 +75,5 @@ class Library {
             }
 
         }
+
     }
