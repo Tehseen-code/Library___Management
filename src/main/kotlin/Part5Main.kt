@@ -38,5 +38,11 @@ fun main() {
 
     println(LocalDateTime.now())
 
-    println("Book:" + Timestamp.valueOf(LocalDateTime.now()))
+    println("B:" + Timestamp.valueOf(LocalDateTime.now()))
+
+//    val n1 = 1
+//    val n2 = 'a'
+//    val number = Regex("0..9")
+//    if(number.any(n1))
+
 }
