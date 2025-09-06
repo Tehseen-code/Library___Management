@@ -63,13 +63,16 @@ class Library {
         // Use forEach with lambda
         val currentDate = Clock.systemDefaultZone().instant()
         borrowedItems.forEach { (memberId, itemIds) ->
-            val member = members[memberId]
+            val member = members[memberId] ?: return@forEach // skip -> if the member is not found!
+            itemIds.forEach { itemId ->
+                val item = itemsById[itemId] ?: return@forEach // if item is not found, skip
 
+                val overdueDays = 3  // i just assume the overdue days
+                // the lambda action
+                    action(item, member, overdueDays)
+
+                }
+            }
 
         }
-
     }
-
-
-// end here
-}
