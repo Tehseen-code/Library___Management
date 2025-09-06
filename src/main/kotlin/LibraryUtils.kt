@@ -1,9 +1,7 @@
 package org.example
 
-import sun.jvm.hotspot.HelloWorld.e
 import java.sql.Timestamp
 import java.time.LocalDateTime
-import java.time.LocalTime
 
 class LibraryUtils {
     companion object {
@@ -21,18 +19,32 @@ class LibraryUtils {
             return result
         }
 
-//        fun validateISBN(isbn: String): Boolean {
-//            // Validate ISBN format
-//            // 978-1234567890
-//            val isbnArray: CharArray = isbn.toCharArray()
-//            val number = Regex("0-9")
-//
-//            if(isbn.length != 14) {
-//                return false
-//            } else if (isbnArray[3] != '-') {
-//                return false
-//            } else if()
-//
-//        }
+        fun validateISBN(isbn: String): Boolean {
+            // Validate ISBN format
+            // 978-1234567890
+            val isbnArray: CharArray = isbn.toCharArray()
+
+            if(isbn.length != 14) {
+                return false
+            }
+            else if (isbnArray[3] != '-') {
+                return false
+            }
+
+            else  {
+                for(i in 0..2) {
+                    if(!isbnArray[i].isDigit()) {
+                        return false
+                    }
+                }
+
+                for(i in 4..13) {
+                    if(!isbnArray[i].isDigit()) {
+                        return false
+                    }
+                }
+                return true
+            }
+        }
     }
 }
